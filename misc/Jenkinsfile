@@ -12,6 +12,7 @@ node {
      }
    }
    stage('docker build/push') {
+      sh 'echo "---------------Test----------------"'
      docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
        def app = docker.build("ijlandin/docker-nodejs-demo:${commit_id}", '.').push()
      }
